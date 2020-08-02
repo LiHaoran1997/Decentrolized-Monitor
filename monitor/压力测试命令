@@ -1,0 +1,37 @@
+curl -X GET http://10.77.70.177:8086/grafana/provider/run -H "ipaddr:http://10.77.70.179:8081/hi"
+curl -X GET http://10.77.70.187:8084/echo/app/name
+http://10.77.70.179:8081/echo/consumer-ribbon
+
+
+curl -X GET http://10.77.70.183:5001/grafana/blockchain/instance/provider/run -H "ipaddr:http://10.77.70.185:7001/provider/echo/consumer-ribbon"
+
+
+curl -X GET http://127.0.0.1:8086/grafana/blockchain/instance/provider/run -H "ipaddr:http://127.0.0.1:7020/hi"
+
+ curl -X GET 10.77.70.180:5001/grafana/test-service/run -H "ipaddr:http://10.77.70.179:7007/echo/consumer-ribbon"
+
+curl -X POST http://10.77.70.183:5001/grafana/blockchain/instance/provider/resetGrafanaSearchList
+curl -X POST http://127.0.0.1:8086/grafana/blockchain/instance/provider/resetAll
+
+curl -X GET http://10.77.70.183:5001/grafana/blockchain/instance/test1-100/run -H "ipaddr:http://10.77.70.185:7001/provider/echo/consumer-ribbon"
+
+curl -X POST http://127.0.0.1:8086/grafana/blockchain/instance/provider/resetMonitor
+-H "ipaddr:http://10.77.70.185:8081/echo/consumer-ribbon"
+
+
+
+wrk -t8 -c200 -d 10 --latency  http://10.77.70.182:5001/grafana/blockchain/instance/test-service/run -H "ipaddr:http://10.77.70.182:7003/provider/echo/consumer-ribbon"
+
+wrk -t1 -c1 200000 -c 500  http://10.77.70.187/echo/app/n
+
+ab -n 200000 -c 500  http://10.77.70.187/echo/app/name
+
+curl -X GET  http://10.77.70.182:5001/grafana/blockchain/instance/test1-100/queryTest 
+
+curl -X GET  http://10.77.70.182:5001/grafana/blockchain/instance/test1-100/run -H "ipaddr:http://10.77.70.182:7003/provider/echo/consumer-ribbon"
+
+curl -X GET  http://10.77.70.187:9024/echo/app/name
+
+ab -n 10000 -c 500  -H "ipaddr:http://127.0.0.1:8088/hi" http://127.0.0.1:8086/grafana/blockchain/instance/provider/run 
+
+ab -n 1000 -c 100  -H "ipaddr:http://10.77.70.176:7001/provider/hi" http://10.77.70.185:9024/grafana/blockchain/instance/provider/run 

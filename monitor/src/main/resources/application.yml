@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: monitor
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.77.70.178:8848
+
+fabric:
+  port: 4000
+  ipaddr: 10.77.70.174
+
+server:
+  port: 8086
+  tomcat:
+    accept-count: 10000
+    max-connections: 100000
+    max-threads: 3200
+    min-spare-threads: 320
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
